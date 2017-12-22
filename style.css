@@ -1,0 +1,54 @@
+body{
+  margin: 0;
+}
+
+.wrapper{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.start{
+  background-color: #000000;
+  color: #ffffff;
+  padding: 10px;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+.primer{
+  margin-bottom: 150px;
+  font-size: 28px;
+}
+
+.line{
+  background-image: url(img/sprite.png);
+  width: 875px;
+  height: 83px;
+  position: relative;
+}
+
+#canvas{
+  position: absolute;
+  top: -86px;
+  left: 35px;
+  width: 700px;
+  fill: red;
+}
+
+.testInput{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.badOtvet{
+  color: red;
+}
+
+.numOneBad{
+  background-color: #fdff2b;
+}
