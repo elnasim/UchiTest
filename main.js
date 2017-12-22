@@ -21,7 +21,7 @@ inputValueFirst.style.left = (a * step) / 2 - 30 + 'px';
 var inputValueSecond = document.createElement('input');
 inputValueSecond.className = 'inputValueSecond';
 inputValueSecond.setAttribute('type', 'text');
-inputValueSecond.style.left = ((a + sum) * step) / 2 - 120 + 'px';
+inputValueSecond.style.left = ((a + sum) * step) / 2 - 150 + 'px';
 
 var inputValueAnswer = document.createElement('input');
 inputValueAnswer.className = 'inputValueAnswer';
@@ -99,7 +99,7 @@ inputValueSecond.addEventListener('input', function () {
     this.remove();
     var trueOtvet = document.createElement('span');
     trueOtvet.className = 'trueOtvetSecond';
-    trueOtvet.style.left = ((a + sum) * step) / 2 - 120 + 'px';
+    trueOtvet.style.left = ((a + sum) * step) / 2 - 150 + 'px';
     trueOtvet.innerHTML = b;
     ruler.appendChild(trueOtvet);
     num2.classList.remove('numBad');
