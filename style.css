@@ -30,6 +30,20 @@ body {
   position: relative;
 }
 
+.inputValueFirst, .trueOtvetFirst {
+  position: absolute;
+  left: 0;
+  top: -105px;
+  width: 15px;
+}
+
+.inputValueSecond, .trueOtvetSecond {
+  position: absolute;
+  left: 0;
+  top: -70px;
+  width: 15px;
+}
+
 #canvas {
   position: absolute;
   top: -86px;
@@ -51,4 +65,8 @@ body {
 
 .numBad {
   background-color: #fdff2b;
+}
+
+.inputValueAnswer, .badAnswer {
+  width: 15px;
 }
