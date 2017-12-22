@@ -1,4 +1,4 @@
-var line = document.querySelector('.line');
+var ruler = document.querySelector('.ruler');
 var num1 = document.querySelector('.num1');
 var num2 = document.querySelector('.num2');
 var btnStart = document.querySelector('.start');
@@ -18,18 +18,18 @@ inputValueFirst.className = 'inputValueFirst';
 inputValueFirst.setAttribute('type', 'text');
 
 var inputValueSecond = document.createElement('input');
-inputValueFirst.className = 'inputValueSecond';
-inputValueFirst.setAttribute('type', 'text');
+inputValueSecond.className = 'inputValueSecond';
+inputValueSecond.setAttribute('type', 'text');
 
-var inputValueOtvet = document.createElement('input');
-inputValueOtvet.className = 'inputValueOtvet';
-inputValueOtvet.setAttribute('type', 'text');
+var inputValueAnswer = document.createElement('input');
+inputValueAnswer.className = 'inputValueAnswer';
+inputValueAnswer.setAttribute('type', 'text');
 
 btnStart.addEventListener('click', function () {
   this.remove();
   var canvas = document.getElementById('canvas');
 
-  line.appendChild(inputValueFirst);
+  ruler.appendChild(inputValueFirst);
 
   if (canvas.getContext) {
     var ctx = canvas.getContext('2d');
@@ -47,7 +47,7 @@ btnStart.addEventListener('click', function () {
 function newLine() {
   var canvas = document.getElementById('canvas');
 
-  line.appendChild(inputValueSecond);
+  ruler.appendChild(inputValueSecond);
 
   if (canvas.getContext) {
     var ctx = canvas.getContext('2d');
@@ -61,16 +61,16 @@ function newLine() {
   }
 }
 
-function VvediteOtvet() {
+function typeAnswer() {
   otvet.innerHTML = '';
-  otvet.appendChild(inputValueOtvet);
+  otvet.appendChild(inputValueAnswer);
   otvet.addEventListener('input', function () {
-    if (inputValueOtvet.value == sum) {
-      inputValueOtvet.remove();
+    if (inputValueAnswer.value == sum) {
+      inputValueAnswer.remove();
       this.innerHTML = sum;
-      inputValueOtvet.classList.remove('badOtvet');
+      inputValueAnswer.classList.remove('badAnswer');
     } else {
-      inputValueOtvet.className = 'badOtvet';
+      inputValueAnswer.className = 'badAnswer';
     }
   })
 }
@@ -82,12 +82,12 @@ inputValueFirst.addEventListener('input', function () {
     var trueOtvet = document.createElement('span');
     trueOtvet.className = 'trueOtvet';
     trueOtvet.innerHTML = a;
-    line.appendChild(trueOtvet);
-    num1.classList.remove('numOneBad');
+    ruler.appendChild(trueOtvet);
+    num1.classList.remove('numBad');
     newLine();
   } else {
-    this.className = 'badOtvet';
-    num1.className = 'numOneBad';
+    this.className = 'badAnswer';
+    num1.className = 'numBad';
   }
 });
 
@@ -97,11 +97,11 @@ inputValueSecond.addEventListener('input', function () {
     var trueOtvet = document.createElement('span');
     trueOtvet.className = 'trueOtvet';
     trueOtvet.innerHTML = b;
-    line.appendChild(trueOtvet);
-    num2.classList.remove('numOneBad');
-    VvediteOtvet();
+    ruler.appendChild(trueOtvet);
+    num2.classList.remove('numBad');
+    typeAnswer();
   } else {
-    this.className = 'badOtvet';
-    num2.className = 'numOneBad';
+    this.className = 'badAnswer';
+    num2.className = 'numBad';
   }
 });
