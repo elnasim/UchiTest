@@ -2,7 +2,7 @@ var ruler = document.querySelector('.ruler');
 var num1 = document.querySelector('.num1');
 var num2 = document.querySelector('.num2');
 var btnStart = document.querySelector('.start');
-var otvet = document.querySelector('.otvet');
+var answer = document.querySelector('.answer');
 
 var a = Math.floor(Math.random() * (10 - 6) + 6);
 var sum = Math.floor(Math.random() * (15 - 11) + 11);
@@ -16,12 +16,12 @@ var step = 55.5; // шаг стрелки для перемещения на о�
 var inputValueFirst = document.createElement('input');
 inputValueFirst.className = 'inputValueFirst';
 inputValueFirst.setAttribute('type', 'text');
-inputValueFirst.style.left = (a * step) / 2 - 30 + 'px';
+inputValueFirst.style.left = (a / 2) * 38 + 'px';
 
 var inputValueSecond = document.createElement('input');
 inputValueSecond.className = 'inputValueSecond';
 inputValueSecond.setAttribute('type', 'text');
-inputValueSecond.style.left = ((a + sum) * step) / 2 - 150 + 'px';
+inputValueSecond.style.left = (a + b / 2) * 38.6 + 'px';
 
 var inputValueAnswer = document.createElement('input');
 inputValueAnswer.className = 'inputValueAnswer';
@@ -64,9 +64,9 @@ function newLine() {
 }
 
 function typeAnswer() {
-  otvet.innerHTML = '';
-  otvet.appendChild(inputValueAnswer);
-  otvet.addEventListener('input', function () {
+  answer.innerHTML = '';
+  answer.appendChild(inputValueAnswer);
+  answer.addEventListener('input', function () {
     if (inputValueAnswer.value == sum) {
       inputValueAnswer.remove();
       this.innerHTML = sum;
@@ -81,11 +81,11 @@ function typeAnswer() {
 inputValueFirst.addEventListener('input', function () {
   if (this.value == a) {
     this.remove();
-    var trueOtvet = document.createElement('span');
-    trueOtvet.className = 'trueOtvetFirst';
-    trueOtvet.style.left = (a * step) / 2 - 30 + 'px';
-    trueOtvet.innerHTML = a;
-    ruler.appendChild(trueOtvet);
+    var trueAnswer = document.createElement('span');
+    trueAnswer.className = 'trueAnswerFirst';
+    trueAnswer.style.left = (a / 2) * 38 + 'px';
+    trueAnswer.innerHTML = a;
+    ruler.appendChild(trueAnswer);
     num1.classList.remove('numBad');
     newLine();
   } else {
@@ -97,11 +97,11 @@ inputValueFirst.addEventListener('input', function () {
 inputValueSecond.addEventListener('input', function () {
   if (this.value == b) {
     this.remove();
-    var trueOtvet = document.createElement('span');
-    trueOtvet.className = 'trueOtvetSecond';
-    trueOtvet.style.left = ((a + sum) * step) / 2 - 150 + 'px';
-    trueOtvet.innerHTML = b;
-    ruler.appendChild(trueOtvet);
+    var trueAnswer = document.createElement('span');
+    trueAnswer.className = 'trueAnswerSecond';
+    trueAnswer.style.left = (a + b / 2) * 38.6 + 'px';
+    trueAnswer.innerHTML = b;
+    ruler.appendChild(trueAnswer);
     num2.classList.remove('numBad');
     typeAnswer();
   } else {
